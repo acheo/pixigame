@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 
 const Ship = require( './ship' );
+const Explosion = require( './explosion' );
 
 document.addEventListener("DOMContentLoaded", () => {
     let game = new Game();
@@ -28,10 +29,14 @@ class Game {
             game.myship.move(e.data.global.x,e.data.global.y);
         }
 
+        var mouseUpEventHandler = function(e){
+            let newExplosion = new Explosion( game, e.data.global.x,e.data.global.y);
+        }
+
         root.interactive = true;
         root.buttonMode = true;
         //root.on("mousedown", mouseEventHandler);
-        //root.on("mouseup", mouseUpEventHandler);
+        root.on("mouseup", mouseUpEventHandler);
         //root.on("mouseover", mouseEventHandler);
         root.on("mousemove", mouseMoveEventHandler);
 
