@@ -1,0 +1,2 @@
+# pixigame
+Pixi.js game
