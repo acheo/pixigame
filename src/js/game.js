@@ -25,17 +25,21 @@ class Game {
         root.hitArea = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
 
         var mouseMoveEventHandler = function(e){
-            //console.log(e);
-            game.myship.move(e.data.global.x,e.data.global.y);
+            game.myship.target.x = e.data.global.x;
+            game.myship.target.y = e.data.global.y;
         }
 
         var mouseUpEventHandler = function(e){
-            let newExplosion = new Explosion( game, e.data.global.x,e.data.global.y);
+            let newExplosion = new Explosion( game, game.myship._body.position.x, game.myship._body.position.y);
+        }
+
+        var mouseDownEventHandler = function(e){
+
         }
 
         root.interactive = true;
         root.buttonMode = true;
-        //root.on("mousedown", mouseEventHandler);
+        root.on("mousedown", mouseDownEventHandler);
         root.on("mouseup", mouseUpEventHandler);
         //root.on("mouseover", mouseEventHandler);
         root.on("mousemove", mouseMoveEventHandler);
@@ -46,6 +50,7 @@ class Game {
 
     tick() {
         this.renderer.render(this.root);
+        this.myship.update();
         requestAnimationFrame(this.tick.bind(this));
     }
 }
