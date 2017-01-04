@@ -1,5 +1,7 @@
 import * as PIXI from "pixi.js";
 
+const Ship = require( './ship' );
+
 document.addEventListener("DOMContentLoaded", () => {
     let game = new Game();
     window.game = game; // global
@@ -18,6 +20,8 @@ class Game {
         this.renderer.view.id = "pixicanvas"; // for css
         document.body.appendChild(this.renderer.view);
         let root = this.root = new PIXI.Container();
+
+        this.myship = new Ship( this, window.innerWidth / 2, window.innerHeight / 2);
 
     }
 
