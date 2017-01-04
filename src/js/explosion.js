@@ -16,7 +16,7 @@ module.exports = class Explosion{
             this.container,
 
             // The collection of particle images to use
-            [PIXI.Texture.fromImage('../img/particle.png'), PIXI.Texture.fromImage('../img/smokeparticle.png')],
+            [PIXI.Texture.fromImage('./img/particle.png'), PIXI.Texture.fromImage('./img/smokeparticle.png')],
 
             // Emitter configuration, edit this to change the look
             // of the emitter

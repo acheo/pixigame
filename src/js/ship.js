@@ -7,7 +7,7 @@ module.exports = class Ship{
         this.last = Date.now();
 
         this._game = game;
-        this._body = PIXI.Sprite.fromImage( '../img/ship-white.png' );
+        this._body = PIXI.Sprite.fromImage( './img/ship-white.png' );
         this._body.position.x = x;
         this._body.position.y = y;
         this.target.x = x;

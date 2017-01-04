@@ -1,6 +1,9 @@
 # pixigame
 Pixi.js game prototype
 
+## Demo link:
+http://apps.unitedcommand.com/pixigame/
+
 ## Setup
 npm install
 
